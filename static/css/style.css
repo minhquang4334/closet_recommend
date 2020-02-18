@@ -1,7 +1,8 @@
 /* Base */
 body {
   line-height: 1.7;
-  color: #4d4d4d;
+  /* color: #685b5b; */
+  color: #696969;
   font-weight: 400;
   font-size: 1rem;
   font-family: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -67,6 +68,9 @@ a {
 .site-section {
   padding: 3em 0; }
   @media (min-width: 768px) {
+    #result_section .date{
+      font-size: 1.6rem;
+    }
     .site-section {
       padding: 7em 0; } }
   .site-section.site-section-sm {
@@ -127,6 +131,9 @@ a {
     background: rgba(238, 198, 10, 0.9); }
 
 @media (max-width: 767.98px) {
+  .weather-info{
+    border: none !important;
+  }
   .display-3, .display-2, .display-4 {
     font-size: 2rem !important; } }
 
@@ -209,9 +216,31 @@ a {
   position: relative;
   z-index: 1;
   top: 20px; }
-  .job-search > ul a {
-    text-transform: uppercase;
-    color: #000;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: .1em; }
+.job-search > ul a {
+  text-transform: uppercase;
+  color: #000;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: .1em; }
+
+  .bg-morning{
+    background-color: #f62e36!important;
+  }
+
+  .bg-afternoon{
+    background-color: #ff9500!important;
+  }
+
+  .bg-night{
+    background-color: #009bbf!important;
+  }
+
+.text-gray-69{
+  color: #696969!important;
+}
+
+.time{
+  font-size: 1.5rem;
+  width: 45px;
+  height: 45px;
+}

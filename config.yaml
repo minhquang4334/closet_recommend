@@ -1,2 +1,83 @@
 fivedays_3hours_forcast_api: "https://api.openweathermap.org/data/2.5/forecast?"
 api_key: "2c07c4b723a79973f52a9f847a271f34"
+lang: "ja"
+maximum_time_delta: 4
+closet_recommend: {
+  temp_1: {
+    recommend: "1",
+    min: -10,
+    max: 10
+  },
+  temp_2: {
+    recommend: "2",
+    min: 10,
+    max: 14
+  },
+  temp_3: {
+    recommend: "3",
+    min: 14,
+    max: 18
+  },
+  temp_4: {
+    recommend: "4",
+    min: 18,
+    max: 22
+  },
+  temp_5: {
+    recommend: "5",
+    min: 22,
+    max: 26
+  },
+  temp_6: {
+    recommend: "6",
+    min: 26,
+    max: 30
+  },
+  temp_7: {
+    recommend: "7",
+    min: 30,
+    max: 34
+  },
+  temp_8: {
+    recommend: "8",
+    min: 34,
+    max: 100
+  },
+}
+get_temp_time: {
+  morning: "06:00:00",
+  afternoon: "12:00:00",
+  night: "21:00:00",
+}
+list_city: {
+  hanoi: {
+    city_code: hanoi,
+    country_code: vn,
+    city_name: "Hà Nội",
+    id: 0
+  },
+  danang: {
+    city_code: danang,
+    country_code: vn,
+    city_name: "Đà Nẵng",
+    id: 1
+  },
+  # hochiminh: {
+  #   city_code: Thanh pho Ho Chi Minh,
+  #   country_code: vn,
+  #   city_name: "",
+  #   id: 2
+  # },
+  # bangkok: {
+  #   city_code: bangkok,
+  #   country_code: th,
+  #   id: 3
+  # },
+  # seoul: {
+  #   city_code: seoul,
+  #   country_code: kr,
+  #   id: 4
+  # }
+}
+data_file_path: "./cities_weather_data.json"
+# list_weather_condition: ['Thunderstorm', 'Drizzle', ]
