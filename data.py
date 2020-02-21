@@ -12,6 +12,7 @@ maximum_time = date.today() + timedelta(config['maximum_time_delta'])
 def get_5days_3hours_forcast_data(city_code='HaNoi', country_code='vn', units='metric'):
     url = config["fivedays_3hours_forcast_api"]
     url += 'q={},{}&units={}&APPID={}&lang={}'.format(city_code, country_code, units, config["api_key"], config['lang'])
+    print (url)
     response = requests.get(url)
     data = response.text
     parsed = json.loads(data)
@@ -36,6 +37,7 @@ def remove_unused_attributes(data):
         tmp['temp_max'] = el['main']['temp_max']
         tmp['weather'] = el['weather'][0]['main']
         tmp['description'] = el['weather'][0]['description']
+        tmp['icon'] = el['weather'][0]['icon']
         r = handle_data_with_temp_condition(float(el['main']['temp_min']), float(el['main']['temp_max']), config)
         tmp['recommend'] = r['recommend']
         tmp['time'] = add_time(config, el)

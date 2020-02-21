@@ -2,8 +2,6 @@ from flask import Flask, request, jsonify
 from helpers import *
 from api import *
 app = Flask(__name__, static_url_path='/static')
-today = date.today()
-maximum_time = date.today() + timedelta(config['maximum_time_delta'])
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
