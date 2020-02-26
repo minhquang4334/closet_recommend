@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 from helpers import *
 from api import *
+from flask_cors import CORS
 app = Flask(__name__, static_url_path='/static')
+cors = CORS(app)
+
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
@@ -30,6 +33,14 @@ def recommend():
 @app.route('/list')
 def list_cities():
     return jsonify(cities_info())
+
+@app.route('/weather-conditions')
+def weather_conditions():
+    return jsonify(get_weather_conditions())
+
+@app.route('/insta')
+def get_insta_list():
+    return jsonify(get_insta())
 
 # @app.route('/user/<name>')
 # def user(name):

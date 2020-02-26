@@ -2,10 +2,16 @@ from data import *
 from datetime import date, datetime, timedelta
 from flask import jsonify
 from helpers import *
-
+import json
 today = date.today()
 maximum_time = date.today() + timedelta(config['maximum_time_delta'])
 #api get info of city code
+def get_insta():
+    data = {}
+    with open('./instagrams.json') as f:
+        data = json.load(f)
+    return data
+
 def cities_info(): 
     config = load_config()
     list_city = config['list_city']
@@ -22,6 +28,11 @@ def get_weather_recommend(city_code='hanoi', start_date=today, end_date=maximum_
     weather_data = handle_data_with_date_condition(weather_data, start_date, end_date)
     return (weather_data)
 
+def get_weather_conditions():
+    config = load_config()
+    list_conditions = config['weather_conditions']
+    return list_conditions
+
 #api get info of weather forcast
 if __name__ == '__main__':
-    print get_weather_recommend(start_date=get_date('2020-02-13'), end_date=get_date('2020-02-14'))
+    print (get_insta())

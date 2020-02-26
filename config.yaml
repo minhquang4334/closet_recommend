@@ -4,7 +4,7 @@ lang: "ja"
 maximum_time_delta: 4
 closet_recommend: {
   temp_1: {
-    recommend: "東京の真冬と同じ服装。長袖カットソー+カーディガン（またはニット1枚）+コート、靴はスニーカーやパンプスなどがGOOD。ストールがあると便利です。重ね着をして調節できるようにしましょう。",
+    recommend: "東京の真冬と同じ服装。<br>長袖カットソー+カーディガン（またはニット1枚）+コート、靴はスニーカーやパンプスなどがGOOD。ストールがあると便利です。重ね着をして調節できるようにしましょう。",
     min: -10,
     max: 10
   },
@@ -24,7 +24,7 @@ closet_recommend: {
     max: 22
   },
   temp_5: {
-    recommend: "東京の春と同じ服装。半袖+カーディガン、靴はスニーカーやパンプスなどがGOOD。薄手のストールがあると便利です、重ね着をして調節できるようにしましょう。",
+    recommend: "東京の春と同じ服装。<br>半袖+カーディガン、靴はスニーカーやパンプスなどがGOOD。薄手のストールがあると便利です、重ね着をして調節できるようにしましょう。",
     min: 22,
     max: 26
   },
@@ -81,3 +81,40 @@ list_city: {
 }
 data_file_path: "./cities_weather_data.json"
 # list_weather_condition: ['Thunderstorm', 'Drizzle', ]
+weather_conditions: [
+  {
+    type: 'Thunderstorm',
+    images: 'static/images/lightning_rain.jpeg',
+    japanese: '雷雨'
+  },
+  {
+    type: 'Drizzle',
+    images: 'static/images/rain3.jpeg',
+    japanese: '霧雨'
+  },
+  {
+    type: 'Rain',
+    images: 'static/images/rain.jpeg',
+    japanese: '雨'
+  },
+  {
+    type: 'Snow',
+    images: 'static/images/snow.jpeg',
+    japanese: '雪'
+  },
+  {
+    type: 'Atmosphere',
+    images: 'static/images/mist.jpeg',
+    japanese: '霧'
+  },
+  {
+    type: 'Clear',
+    images: 'static/images/sunny.jpeg',
+    japanese: '晴れ'
+  },
+  {
+    type: 'Clouds',
+    images: 'static/images/cloud.jpeg',
+    japanese: '曇り'
+  },
+]
