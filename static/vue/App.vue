@@ -73,7 +73,10 @@
             <div class="result-element col-10 list-group list-group-horizontal-md flex-fill">
                 <div class="col-md-4 list-group-item" v-for="(data, index) in re">
                   <div class="row">
-                    <div class="col-6 col-md-12 border-bottom text-center weather-info pb-2">
+                    <div class="col-6 col-md-12 py-3 border-bottom">
+                      <span v-html="data.recommend"></span>
+                    </div>
+                    <div class="col-6 col-md-12 border-bottom text-center weather-info pb-2 mt-3">
                       <div class="row">
                         <div class="col-md-2 p-0 font-weight-bold">
                           <p class="time rounded text-white p-1 morning_color" v-if="index == 0">朝</p>

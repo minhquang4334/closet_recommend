@@ -81,4 +81,4 @@ def handle_data(data, start_date=today, end_date=maximum_time):
     return results
 
 if __name__ == '__main__':
-    print get_data_from_file()
+    print (get_data_from_file())
