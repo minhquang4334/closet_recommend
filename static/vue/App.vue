@@ -24,13 +24,13 @@
                         </div>
                         <div class="col-md-6 col-lg-3 mb-3 mb-lg-0" id="start_date">
                           <div class="input-group date" >
-                            <input type="text" class="form-control" id="s_date" ref="st_date" placeholder="出発日" v-model="s_d">
+                            <input type="text" class="form-control" id="s_date" ref="st_date" placeholder="出発日">
                             <span class="input-group-addon"></span>
                           </div>
                         </div>
                         <div class="col-md-6 col-lg-3 mb-3 mb-lg-0" id="end_date">
                           <div class="input-group date">
-                            <input type="text" class="form-control" id="e_date" placeholder="帰国日" v-model="e_d">
+                            <input type="text" class="form-control" id="e_date" placeholder="帰国日">
                             <span class="input-group-addon"></span>
                           </div>
                         </div>
@@ -92,9 +92,6 @@
                           <span class="text-danger">{{toIntNum(data.feels_like)}} &ordm; C</span>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-6 col-md-12 py-3">
-                      <span v-html="data.recommend"></span>
                     </div>
                   </div>
                 </div>
@@ -408,14 +405,14 @@
                 let selected_city = this.selected_city
                 s_date = document.getElementById('s_date').value
                 e_date = document.getElementById('e_date').value
-                console.log(selected_city, (new Date(s_date)).getDate(), (new Date(e_date)).getDate())
+                // console.log(selected_city, (new Date(s_date)).getDate(), (new Date(e_date)).getDate())
                 if (selected_city.city_code in this.recommend) {
                     let tmp = this.recommend[selected_city.city_code]
-                    console.log('tmp', tmp, (new Date("2020-02-19 12:00:00")).getDate())
+                    // console.log('tmp', tmp, (new Date("2020-02-19 12:00:00")).getDate())
                     let r_filter = tmp.filter((r) => this.compareDate(s_date, e_date, r.dt_txt))
                     
                     this.selected_recommend = this.groupDate(r_filter)
-                    console.log(this.selected_recommend);
+                    // console.log(this.selected_recommend);
                 }
             },
 

@@ -35,7 +35,7 @@ def remove_unused_attributes(data):
         tmp['dt_txt'] = el['dt_txt']
         tmp['temp_min'] = el['main']['temp_min']
         tmp['temp_max'] = el['main']['temp_max']
-        tmp['feels_like'] = el['main']['feels_like']
+        tmp['feels_like'] = (el['main']['temp_min'] + el['main']['temp_max'])/ 2
         tmp['weather'] = el['weather'][0]['main']
         tmp['description'] = el['weather'][0]['description']
         tmp['icon'] = el['weather'][0]['icon']
