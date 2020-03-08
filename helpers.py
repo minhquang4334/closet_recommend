@@ -29,4 +29,11 @@ def add_time(config, el):
         if t == str_time:
             return key
     return "No data"
-    pass
+    
+
+def add_condition(config, el):
+    conditions = config["weather_conditions"]
+    for key in conditions:
+        if el == key['type']:
+            return key
+    return None

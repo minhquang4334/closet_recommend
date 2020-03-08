@@ -42,7 +42,9 @@ def remove_unused_attributes(data):
         r = handle_data_with_temp_condition(float(el['main']['temp_min']), float(el['main']['temp_max']), config)
         tmp['recommend'] = r['recommend']
         tmp['time'] = add_time(config, el)
-        
+        condition = add_condition(config, tmp['weather'])
+        tmp['type'] = condition['japanese']
+        tmp['images'] = condition['images']
         re.append(tmp)
     return re
 
