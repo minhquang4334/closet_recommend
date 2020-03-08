@@ -5,7 +5,7 @@ from dateutil import parser
 
 def load_config(path='./config.yaml'):
   with open(path) as fp:
-    config = yaml.load(fp, Loader=yaml.FullLoader)
+    config = yaml.load(fp)
   return config
 
 def get_date(str_datetime):
