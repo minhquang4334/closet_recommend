@@ -1,4 +1,3 @@
-from data import *
 from data_16 import *
 from schedule import * 
 import schedule
@@ -11,14 +10,14 @@ def job(config):
     for k, el in list_city.items():
         city_code = el['city_code']
         country_code = el['country_code']
-        data = get_5days_3hours_forcast_data(city_code=city_code, country_code=country_code)
-        data = handle_data(data)
+        data = get_sixteen_daily_data(city_code=city_code, country_code=country_code)
+        data = add_recommend_msg(data['list'])
+        data = remove_unused_attributes(data)
         list_data_by_dates[city_code] = data
     js = json.dumps(list_data_by_dates)
     f = open(config["data_file_path"],"w+")
     f.write(js)
     f.close()
-
 
 if __name__ == '__main__':
     config = load_config()

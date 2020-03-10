@@ -25,7 +25,7 @@ def get_weather_recommend(city_code='hanoi', start_date=today, end_date=maximum_
             'code': 201
         }
         return (msg)
-    weather_data = handle_data_with_date_condition(weather_data, start_date, end_date)
+    # weather_data = handle_data_with_date_condition(weather_data, start_date, end_date)
     return (weather_data)
 
 def get_weather_conditions():
