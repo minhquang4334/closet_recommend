@@ -37,7 +37,7 @@
                         <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
                           <button id="search_button" id="search_btn" class="btn btn-primary btn-block" @click="searchRecommend">検索</button>
                         </div>
-                        <span class="text-warning pt-2 pl-3">＊　本日より５日以内の日付のみ選択できます</span>
+                        <span class="text-secondary text-sm pt-2 pl-3">＊　本日より５日以内の日付のみ選択できます</span>
                       </div>
                     <!-- </form> -->
                   </div>
@@ -53,62 +53,74 @@
           <div class="b-bottom">
             <h2 class="font-weight-bold" v-if="selected_city.city_code == 'hanoi'">ハノイの天気</h2>
             <h2 class="font-weight-bold" v-else>ダナンの天気</h2>
-            <p v-html="weather_description"></p>
+            <h4 v-html="weather_description" class="my-4"></h4>
           </div>
-          <div class="row justify-content-start text-left mb-5 mt-5">
+          <div class="row justify-content-start text-left mb-3 mt-3">
             <div class="col-md-9" data-aos="fade">
               <h2 class="font-weight-bold">滞在中におすすめの服装</h2>
             </div>
           </div>
           <template v-if="mode === 'sixteen'">
             <div class="bg-white p-2 my-3 shadow row" v-for="re in selected_recommend">
-              <div class="col-md-2">
-                <div class="card h-100 d-none d-md-block py-5">
+              <!-- <div class="col-md-2 "> -->
+                <!-- <div class="card h-100 py-5">
                   <div class="card-body text-center p-0">
                     <p class="card-title font-weight-bold date">{{getDateInfo(re).month}} / {{getDateInfo(re).date}}</p>
                     <p class="card-title font-weight-bold date">（{{getDateInfo(re).day}}）</p>
-                    <div class="d-none d-md-block">
+                    <div class="">
                       <div class="row p-0 w-75 m-auto">
                         <div class="col-md-6 text-primary p-0 border-right border-secondary">{{toIntNum(re.temp_min)}} &ordm; C</div>
                         <div class="col-md-6 text-danger p-0">{{toIntNum(re.temp_max)}} &ordm; C</div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="h-100 d-block d-md-none">
-                  <div class="card-body text-center p-0">
-                    <span class="card-title font-weight-bold date">{{getDateInfo(re).month}} / {{getDateInfo(re).date}}</span>
-                    <span class="card-title font-weight-bold date">（{{getDateInfo(re).day}}）</span>
+                </div> -->
+                <div class="col-md-2 py-3 text-center border d-flex justify-content-center">
+                  <div class="row align-self-center">
+                    <div class="col-6 col-md-12 py-1">
+                      <div class="text-center">
+                        <span class="font-weight-bold date">{{getDateInfo(re).month}} / {{getDateInfo(re).date}}</span>
+                        <span class="font-weight-bold date">（{{getDateInfo(re).day}}）</span>
+                      </div>
+                      <div class="d-flex justify-content-center">
+                        <span class="text-primary px-2 border-right border-secondary">{{toIntNum(re.temp_min)}} &ordm; C</span>
+                        <span class="text-danger px-2">{{toIntNum(re.temp_max)}} &ordm; C</span>
+                      </div>
+                    </div>
+                    <div class="col-4 col-md-12 py-1">
+                      <div class="w-md-75 mx-auto">
+                        <img :src="re.images" alt="static/images/logo.jpeg" class="img-fluid" alt="">
+                      </div>
+                    </div>
+                    <div class="col-2 col-md-12 py-1">
+                      <h5>{{re.type}}</h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="result-element col-md-10 list-group list-group-horizontal-md flex-fill">
+              <!-- </div> -->
+              <div class="result-element col-md-10 p-0 list-group list-group-horizontal-md flex-fill">
                 <div class="col-md-4 list-group-item" v-for="(data, index) in re.recommend">
                   <div class="row">
+                    <div class="col-12 text-center weather-info border-bottom">
+                      <div class="d-flex justify-content-between font-weight-bold">
+                        <div class="p-0">
+                          <p class="time rounded text-white p-1 morning_color" v-if="index == 0">朝</p>
+                          <p class="time rounded text-white p-1 afternoon_color" v-if="index == 1">昼</p>
+                          <p class="time rounded text-white p-1 night_color" v-if="index == 2">夜</p>
+                        </div>
+                        <div class="p-0">
+                          <span class="mr-2">体感温度</span>
+                          <span class="text-danger" v-if="index == 0">{{toIntNum(re.temp_morn)}} &ordm; C</span>
+                          <span class="text-danger" v-if="index == 1">{{toIntNum(re.temp_day)}} &ordm; C</span>
+                          <span class="text-danger" v-if="index == 2">{{toIntNum(re.temp_night)}} &ordm; C</span>
+                        </div>
+                      </div>
+                    </div>
                     <div class="col-12 py-3">
                       <span v-html="data"></span>
                       <div class="fashion-list">
                         <button type="button" class="btn btn-sm btn-warning">テーシャツ</button>
                         <button type="button" class="btn btn-sm btn-info">靴</button>
-                      </div>
-                    </div>
-                    <div class="col-12 text-center weather-info pt-3 border-top">
-                      <div class="row">
-                        <div class="col-2 p-0 font-weight-bold">
-                          <p class="time rounded text-white p-1 morning_color" v-if="index == 0">朝</p>
-                          <p class="time rounded text-white p-1 afternoon_color" v-if="index == 1">昼</p>
-                          <p class="time rounded text-white p-1 night_color" v-if="index == 2">夜</p>
-                          <h5>{{re.type}}</h5>
-                        </div>
-                        <div class="col-5">
-                          <img :src="re.images" alt="static/images/logo.jpeg" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-5 p-0 d-flex flex-column">
-                          <span class=""><体感温度></span>
-                          <span class="text-danger" v-if="index == 0">{{toIntNum(re.temp_morn)}} &ordm; C</span>
-                          <span class="text-danger" v-if="index == 1">{{toIntNum(re.temp_day)}} &ordm; C</span>
-                          <span class="text-danger" v-if="index == 2">{{toIntNum(re.temp_night)}} &ordm; C</span>
-                        </div>
                       </div>
                     </div>
                   </div>
