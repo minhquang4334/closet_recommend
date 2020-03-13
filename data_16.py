@@ -43,6 +43,7 @@ def remove_unused_attributes(data):
         tmp['description'] = el['weather'][0]['description']
         tmp['icon'] = el['weather'][0]['icon']
         tmp['recommend'] = el['recommend']
+        tmp['keywords'] = el['keywords']
         condition = add_condition(config, tmp['weather'])
         tmp['type'] = condition['japanese']
         tmp['images'] = condition['images']
@@ -52,12 +53,16 @@ def remove_unused_attributes(data):
 def add_recommend_msg(data):
     for el in data:
         el['recommend'] = []
+        el['keywords'] = []
         r_mor = handle_data_with_temp_condition(float(el['temp']['morn']), float(el['temp']['morn']), config)
         el['recommend'].append(r_mor['recommend'])
+        el['keywords'].append(r_mor['keywords'])
         r_day = handle_data_with_temp_condition(float(el['temp']['day']), float(el['temp']['day']), config)
         el['recommend'].append(r_day['recommend'])
+        el['keywords'].append(r_day['keywords'])
         r_night = handle_data_with_temp_condition(float(el['temp']['night']), float(el['temp']['night']), config)
         el['recommend'].append(r_night['recommend'])
+        el['keywords'].append(r_night['keywords'])
     return data
 
 if __name__ == '__main__':

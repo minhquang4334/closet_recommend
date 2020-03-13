@@ -1,10 +1,10 @@
 <template>
     <div id="template-weather">
-      <div class="site-blocks-cover" style="background-image: url(static/images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="site-blocks-cover" style="background-image: url(static/images/background_3.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row row-custom align-items-center">
             <div class="col-md-10">
-              <h1 class="mb-2 text-gray-69 w-75"><span class="font-weight-bold">旅行へ向けの服装</span></h1>
+              <h1 class="mb-2 text-gray-69 w-75"><span class="font-weight-bold">旅行先のおすすめの服装をチェック！</span></h1>
               <div class="job-search">
                 <div class="tab-content bg-white p-4 rounded" id="pills-tabContent">
                   <div class="tab-pane fade show active" id="pills-job" role="tabpanel" aria-labelledby="pills-job-tab">
@@ -119,8 +119,10 @@
                     <div class="col-12 py-3">
                       <span v-html="data"></span>
                       <div class="fashion-list">
-                        <button type="button" class="btn btn-sm btn-warning">テーシャツ</button>
-                        <button type="button" class="btn btn-sm btn-info">靴</button>
+                        <button type="button" class="btn btn-sm btn-warning mr-1 mt-2" v-for="k in re.keywords[index]['keywords_1']">{{k}}</button>
+                        <button type="button" class="btn btn-sm btn-info mr-1 mt-2" v-for="k in re.keywords[index]['keywords_2']">{{k}}</button>
+                        <button type="button" class="btn btn-sm btn-success mr-1 mt-2" v-for="k in re.keywords[index]['keywords_3']">{{k}}</button>
+
                       </div>
                     </div>
                   </div>
@@ -218,6 +220,7 @@
                 mode: 'sixteen', // if want change mode to five days, set "mode: 'five'"
                 cities: [],
                 host: 'http://153.127.25.172/',
+                // host: 'http://localhost:5000/',
                 recommend: {},
                 selected_city: "",
                 s_d: "",
@@ -461,15 +464,15 @@
               s_date = document.getElementById('s_date').value
               e_date = document.getElementById('e_date').value
               if(s_date == "") {
-                toastr.warning("Start Date False")
+                toastr.warning("出発日を選択してください")
                 return false
               }
               if(e_date == "") {
-                toastr.warning("End Date False")
+                toastr.warning("帰国日を選択してください")
                 return false
               }
               if(e_date < s_date) {
-                toastr.warning("End Date less than Start Date")
+                toastr.warning("帰国日は出発日より後の日付を選択してください")
                 return false
               }
               return true
