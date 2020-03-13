@@ -47,5 +47,5 @@ def get_insta_list():
 #     return '<h1>Hello, %s!</h1>' % name
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
     config = load_config()

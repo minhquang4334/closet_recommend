@@ -217,7 +217,7 @@
             return {
                 mode: 'sixteen', // if want change mode to five days, set "mode: 'five'"
                 cities: [],
-                host: 'http://localhost:5000/',
+                host: 'http://153.127.25.172/',
                 recommend: {},
                 selected_city: "",
                 s_d: "",
